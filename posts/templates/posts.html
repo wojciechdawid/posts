@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of posts</title>
+</head>
+<body>
+<h2>List of posts</h2>
+
+<div>
+{%  for p in list_of_posts %}
+<p><a href="{% url 'posts:details' p.id%}">{{ p.title }}</a></p>
+<p>(utworzono: {{ p.created_at }}</p>
+<p>{{ p.content }}</p>
+{%  endfor %}</div>
+
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+        <label for="p_title">Title</label>
+        <input type="text" id="p_title" name="post_title">
+        </p>
+        <p>
+        <label for="p_content">Content</label>
+        <input type="text" id="p_content" name="post_content">
+        </p>
+        <p>
+        <input type="submit" value="Send">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>
