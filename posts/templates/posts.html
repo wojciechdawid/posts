@@ -10,7 +10,7 @@
 <div>
 {%  for p in list_of_posts %}
 <p><a href="{% url 'posts:details' p.id%}">{{ p.title }}</a></p>
-<p>(utworzono: {{ p.created_at }}</p>
+<p>(utworzono: {{ p.created_at }})</p>
 <p>{{ p.content }}</p>
 {%  endfor %}</div>
 
